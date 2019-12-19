@@ -3,10 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1540D2E023AB2C8A009F6B10 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1540D2DF23AB2C8A009F6B10 /* ChatViewController.swift */; };
+		1540D2E223AB3060009F6B10 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1540D2E123AB3060009F6B10 /* Constants.swift */; };
+		1540D2E423AB36C4009F6B10 /* Messgae.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1540D2E323AB36C4009F6B10 /* Messgae.swift */; };
+		1540D2EB23AB506E009F6B10 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1540D2E923AB506D009F6B10 /* MessageCell.swift */; };
+		1540D2EC23AB506E009F6B10 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1540D2EA23AB506D009F6B10 /* MessageCell.xib */; };
 		15A1745923A8843A00B35793 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A1745823A8843A00B35793 /* RegisterViewController.swift */; };
 		15A1745B23A8848B00B35793 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A1745A23A8848B00B35793 /* LoginViewController.swift */; };
 		15A1745D23A8B12400B35793 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 15A1745C23A8B12400B35793 /* GoogleService-Info.plist */; };
@@ -38,6 +43,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1540D2DF23AB2C8A009F6B10 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		1540D2E123AB3060009F6B10 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1540D2E323AB36C4009F6B10 /* Messgae.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messgae.swift; sourceTree = "<group>"; };
+		1540D2E923AB506D009F6B10 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		1540D2EA23AB506D009F6B10 /* MessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
 		15A1745823A8843A00B35793 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		15A1745A23A8848B00B35793 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		15A1745C23A8B12400B35793 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -118,6 +128,7 @@
 				15E6A9EF23A77B63003BA0C6 /* LaunchScreen.storyboard */,
 				15E6A9F223A77B63003BA0C6 /* Info.plist */,
 				15A1745C23A8B12400B35793 /* GoogleService-Info.plist */,
+				1540D2E123AB3060009F6B10 /* Constants.swift */,
 			);
 			path = MyChat;
 			sourceTree = "<group>";
@@ -144,6 +155,8 @@
 			isa = PBXGroup;
 			children = (
 				15E6A9EA23A77B62003BA0C6 /* Main.storyboard */,
+				1540D2E923AB506D009F6B10 /* MessageCell.swift */,
+				1540D2EA23AB506D009F6B10 /* MessageCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -154,6 +167,7 @@
 				15E6A9E823A77B62003BA0C6 /* ViewController.swift */,
 				15A1745823A8843A00B35793 /* RegisterViewController.swift */,
 				15A1745A23A8848B00B35793 /* LoginViewController.swift */,
+				1540D2DF23AB2C8A009F6B10 /* ChatViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -161,6 +175,7 @@
 		15E6AA1723A77FCB003BA0C6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1540D2E323AB36C4009F6B10 /* Messgae.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -171,7 +186,6 @@
 				D225D9F4AFE2F353C59F5470 /* Pods-MyChat.debug.xcconfig */,
 				21123132ACEFC85D582202F2 /* Pods-MyChat.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -289,6 +303,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1540D2EC23AB506E009F6B10 /* MessageCell.xib in Resources */,
 				15E6A9F123A77B63003BA0C6 /* LaunchScreen.storyboard in Resources */,
 				15A1745D23A8B12400B35793 /* GoogleService-Info.plist in Resources */,
 				15E6A9EE23A77B63003BA0C6 /* Assets.xcassets in Resources */,
@@ -359,10 +374,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1540D2E423AB36C4009F6B10 /* Messgae.swift in Sources */,
+				1540D2EB23AB506E009F6B10 /* MessageCell.swift in Sources */,
 				15A1745B23A8848B00B35793 /* LoginViewController.swift in Sources */,
 				15A1745923A8843A00B35793 /* RegisterViewController.swift in Sources */,
 				15E6A9E923A77B62003BA0C6 /* ViewController.swift in Sources */,
+				1540D2E023AB2C8A009F6B10 /* ChatViewController.swift in Sources */,
 				15E6A9E723A77B62003BA0C6 /* AppDelegate.swift in Sources */,
+				1540D2E223AB3060009F6B10 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
