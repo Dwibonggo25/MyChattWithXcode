@@ -12,13 +12,12 @@ import Firebase
 class ChatViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    
     @IBOutlet weak var messageTextField: UITextField!
     
-    var message: [Message] =  [
-        Message(sender: "hdey@gmail.com", body: "Hallo"),
-        Message(sender: "hdey@gmail.com", body: "What?"),
-        Message(sender: "hdey@gmail.com", body: "Byeee")
-    ]
+    let db = Firestore.firestore()
+    
+    var message: [Message] =  []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +27,48 @@ class ChatViewController: UIViewController {
         
         //Deklaratif custom
         tableView.register(UINib (nibName: Constants.cellNibName, bundle: nil), forCellReuseIdentifier: Constants.cellIdentifier)
+        
+        //To display message
+        loadMessage()
+    }
+    
+    func loadMessage(){
+        
+        db.collection(Constants.FStore.collectionName).order(by: Constants.FStore.dateField).addSnapshotListener { (querySnapshot, error) in
+            self.message = []
+            if let e = error {
+                print("error dimary \(e)")
+            }else {
+                if let snapshoot = querySnapshot?.documents {
+                    for doc in snapshoot {
+                        let data = doc.data()
+                        if let senderMeesgae = data[Constants.FStore.senderField] as? String, let bodyMessage = data[Constants.FStore.bodyField] as? String {
+                            let newMessage = Message(sender: senderMeesgae, body: bodyMessage)
+                            self.message.append(newMessage)
+                            
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
+                            }
+                        }
+                    }
+                }
+               // querySnapshot?.documents[0].data()[Constants.FStore.senderField, Cons]
+            }
+        }
+    }
+    
+    @IBAction func sendPressed(_ sender: UIButton) {
+        
+        if let messageBody = messageTextField.text, let messageSender = Auth.auth().currentUser?.email {
+            db.collection(Constants.FStore.collectionName).addDocument(data: [Constants.FStore.senderField: messageSender, Constants.FStore.bodyField: messageBody, Constants.FStore.dateField: Date().timeIntervalSince1970]){(error) in
+                if let e = error {
+                    print("Gagal: ",e.localizedDescription)
+                }else {
+                    print("Succes")
+                }
+                
+            }
+        }
     }
     
     @IBAction func logoutPressed(_ sender: UIBarButtonItem) {
